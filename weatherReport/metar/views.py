@@ -6,7 +6,7 @@ import json
 
 
 @api_view(['GET'])
-def index(request, message):
+def sampleResponse(request, message):
     if message == 'ping':
         return Response({'data': 'pong'})
     else:
@@ -14,7 +14,7 @@ def index(request, message):
 
 
 @api_view(['GET'])
-def getweatherinfo(request, scode):
+def getWeatherInfo(request, scode):
 
     scode = '/' + scode.upper() + '.TXT'
     url = 'https://tgftp.nws.noaa.gov/data/observations/metar/stations' \
@@ -33,8 +33,7 @@ def getweatherinfo(request, scode):
 
     data_dict = {
         'station': data_list[2],
-        'last_observation': data_list[0] + ' at ' + data_list[1] \
-            + ' GMT',
+        'last_observation': data_list[0] + ' at ' + data_list[1] + ' GMT',
         'temperature': temp_celcius + ' (' + temp_fahrenheit + ')',
         'wind': data_list[3],
         }
