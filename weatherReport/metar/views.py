@@ -8,6 +8,7 @@ import re
 import redis
 import json
 
+
 redis_client=redis.Redis(host='localhost',port=63342,db=0)
 @api_view(['GET'])
 def sampleResponse(request, message):
